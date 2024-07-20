@@ -1,4 +1,4 @@
-/*  
+/*
 MIT/GU-NNoA-LF License
 
 Copyright (c) 2023-now alan-alexander-1011
@@ -40,54 +40,24 @@ Notes after the terms:
 -----------------------------------------
 */
 
-/* the style of whole site.*/
-html{
-  font-family: "Noto Sans", sans-serif;
+const textbox = document.getElementById("subs");
+const textbox2 = document.getElementById("vidCount");
+const textbox3 = document.getElementById("viewCount");
+
+async function getSubscriberCount(){
+  try {
+    const response = await fetch("http://localhost:37373/current_subs");
+    const data = await response.json();
+
+    textbox.textContent = `Current subscribers amount: ${data["count"]}`;
+    textbox2.textContent = `Current video amount: ${data["videoCount"]}`;
+    textbox3.textContent = `Current view amount: ${data["viewCount"]}`;
+    
+    setTimeout(getSubscriberCount, 10000);
+  } catch (error) {
+    console.error("Failed to fetch subscriber count:", error);
+    setTimeout(getSubscriberCount, 10000);
+  }
 }
 
-/* usually is the title/top text of the widget (the biggest one) */
-h1,h2{
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-/* in music widget, this is the info text */
-h3,h4,h5,h6{
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-/* its name site..but its not the whole site, "html" is,
-this is just the box for the elements, changes the sites style */
-.site {
-  background-color: rgba(0,0,0,.425);
-  color: #fff;
-  height: 100%;
-  width:fit-content;
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-  background-size: contain;
-}
-
-/* this is the container of the progressbar, it is the
-gray/grey part you see on the background of the progressbar */
-.progress-container {
-  width: 100%;
-  background-color: #3a3a3a;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-top: 10px;
-}
-
-/* do i need to explain this?? this is the progress bar */
-.progress-bar {
-  height: 5px;
-  width: 0;
-  background-color: #51bd54;
-  transition: width 0.4s, background-color 0.75s;
-}
+document.addEventListener('DOMContentLoaded', getSubscriberCount);

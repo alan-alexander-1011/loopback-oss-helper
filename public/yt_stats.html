@@ -1,4 +1,4 @@
-/*  
+<!-- 
 MIT/GU-NNoA-LF License
 
 Copyright (c) 2023-now alan-alexander-1011
@@ -37,57 +37,25 @@ And the distributor may give the owner credits.
 
 -----------------------------------------
 Notes after the terms:
------------------------------------------
-*/
+----------------------------------------- 
+-->
 
-/* the style of whole site.*/
-html{
-  font-family: "Noto Sans", sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>song widgets</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="yt_stats_script.js" defer></script>
 
-/* usually is the title/top text of the widget (the biggest one) */
-h1,h2{
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-/* in music widget, this is the info text */
-h3,h4,h5,h6{
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-/* its name site..but its not the whole site, "html" is,
-this is just the box for the elements, changes the sites style */
-.site {
-  background-color: rgba(0,0,0,.425);
-  color: #fff;
-  height: 100%;
-  width:fit-content;
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-  background-size: contain;
-}
-
-/* this is the container of the progressbar, it is the
-gray/grey part you see on the background of the progressbar */
-.progress-container {
-  width: 100%;
-  background-color: #3a3a3a;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-top: 10px;
-}
-
-/* do i need to explain this?? this is the progress bar */
-.progress-bar {
-  height: 5px;
-  width: 0;
-  background-color: #51bd54;
-  transition: width 0.4s, background-color 0.75s;
-}
+</head>
+<body>
+  <div class="site">
+    <h2>Live statistics of Youtube Channel.</h2>
+    <h3 id="subs">Waiting for api info...</h3>
+    <h3 id="vidCount">Waiting for api info...</h3>
+    <h3 id="viewCount">Waiting for api info...</h3>
+  </div>
+</body>
+</html>

@@ -47,7 +47,7 @@ async function fetchSongInfo() {
       cache: "no-cache" // Prevent caching issues
     });
     const videoInfo = await response.json();
-    const unknown = { title: 'un', currentTime: 'un' , duration: "un" , uploader: "un"};
+    const unknown = { title: 'un', currentTime: '0:00' , duration: "0:00" , uploader: "un"};
 
     if (videoInfo.title === unknown.title && videoInfo.currentTime === unknown.currentTime && videoInfo.duration === unknown.duration){
       document.getElementById('video-info').textContent = `No video playing.`;
@@ -56,7 +56,7 @@ async function fetchSongInfo() {
       progbar.style.backgroundColor= "#b81b1b";
     } else {
       // Display video info
-      textbox.textContent = `Currently playing: ${videoInfo.title} (by ${videoInfo.uploader}) (${videoInfo.currentTime}/${videoInfo.duration})`;
+      textbox.textContenxt = `Currently playing: ${videoInfo.title} (by ${videoInfo.uploader}) (${videoInfo.currentTime}/${videoInfo.duration})`;
 
       // Progress bar calculation
       var elapsed = videoInfo.currentTime.split(":");
