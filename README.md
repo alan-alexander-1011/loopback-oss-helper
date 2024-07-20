@@ -31,6 +31,8 @@ okok now go into the main thing, how can you make the music widget work?
 >**sixth**: copy and paste it all in the tab and press ctrl+s to save.\
 >**finally**: close the youtube music tab and reopen it (to reload the script)
 
+and its the same for everything. i will update this for other exceptions.
+
 now click on your favourite music, open another tab and type in "localhost:37373/music.html" and enjoy.......the simplicity of the widget
 
 ### wait, you want to style/or make your own widget?
