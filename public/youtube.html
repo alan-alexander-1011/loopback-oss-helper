@@ -1,4 +1,4 @@
-/*
+<!-- 
 MIT/GU-NNoA-LF License
 
 Copyright (c) 2023-now alan-alexander-1011
@@ -37,49 +37,26 @@ And the distributor may give the owner credits.
 
 -----------------------------------------
 Notes after the terms:
------------------------------------------
-*/
-const express = require('express');
-const http = require('http');
-const path = require('path');
+----------------------------------------- 
+-->
 
-const app = express();
-const server = http.createServer(app);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>youtube widgets</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="youtube_scripts.js" defer></script>
 
-app.use(express.json());
-
-// Serve static files (e.g., index.html)
-app.use(express.static(path.join(__dirname, 'public')));
-
-let currentSong = { artist: 'Unknown Artist', title: 'Unknown Title' , time: "unknown time" };
-let videoInfo = {
-  title: 'un',
-  currentTime: 'un',
-  duration: 'un'
-};
-
-// Handle song updates
-app.post('/current_song', async (req, res) => {
-  currentSong = req.body;
-  res.json(currentSong);
-});
-
-app.post('/current_video', async (req, res) => {
-  videoInfo = req.body;
-  res.json(videoInfo);
-});
-
-// Get current song info
-app.get('/current_song', async (req, res) => {
-  res.json(currentSong);
-});
-
-app.get('/current_video', async (req, res) => {
-  res.json(videoInfo);
-});
-
-const PORT = 37373;
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`current music widget is: http://localhost:${PORT}/music.html`);
-});
+</head>
+<body>
+  <div class="site">
+    <h1>Currently playing video</h1>
+    <h4 id="video-info">Waiting for video info...</h4>
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+  </div>
+</body>
+</html>

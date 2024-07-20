@@ -3,6 +3,8 @@
 is a program designed to be used on streams.\
 and this program is a little bit (or a lot) complicated for normal streamers because this requires you know a little bit about the command line.
 
+and this isn't really a helper nor a bot. this is a widget for streaming that is based on npm/node.js and tampermonkey ofc.
+
 this project, i made it with AI, specifically ChatJippity..ahem..ahem...ChatGPT.
 
 ## how to use (REMEMBER TO READ ALL)

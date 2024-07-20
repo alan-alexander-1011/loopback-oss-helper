@@ -39,54 +39,43 @@ And the distributor may give the owner credits.
 Notes after the terms:
 -----------------------------------------
 */
-const textbox = document.getElementById('song-info');
+const textbox = document.getElementById('video-info');
 const progbar = document.getElementById('progress-bar');
 async function fetchSongInfo() {
   try {
-    const response = await fetch('http://localhost:37373/current_song', {
+    const response = await fetch('http://localhost:37373/current_video', {
       cache: "no-cache" // Prevent caching issues
     });
-    const songInfo = await response.json();
-    const unknown = { artist: 'Unknown Artist', title: 'Unknown Title' , time: "unknown time" };
+    const videoInfo = await response.json();
+    const unknown = { title: 'un', currentTime: 'un' , duration: "un" , uploader: "un"};
 
-    if (songInfo.artist === unknown.artist && songInfo.title === unknown.title && songInfo.time === unknown.time){
-      document.getElementById('song-info').textContent = `No song playing.`;
+    if (videoInfo.title === unknown.title && videoInfo.currentTime === unknown.currentTime && videoInfo.duration === unknown.duration){
+      document.getElementById('video-info').textContent = `No video playing.`;
 
       progbar.style.width = "100%";
       progbar.style.backgroundColor= "#b81b1b";
     } else {
-      // Display song info
-      var splitted = songInfo.artist.split("•");
-      textbox.textContent = `Currently playing: ${splitted[0]} - ${songInfo.title} (${splitted[2].trim()}) || ${songInfo.time}`;
+      // Display video info
+      textbox.textContent = `Currently playing: ${videoInfo.title} (by ${videoInfo.uploader}) (${videoInfo.currentTime}/${videoInfo.duration})`;
 
-      //progress bar
-      var elapsed = songInfo.time.split("/")[0].trim();
-      var duration = songInfo.time.split("/")[1].trim();
-      
-      //calculate both of the duration and elapsed time in seconds
-      var splitted_elapsed = elapsed.split(":")
-      var splitted_duration = duration.split(":")
+      // Progress bar calculation
+      var elapsed = videoInfo.currentTime.split(":");
+      var duration = videoInfo.duration.split(":");
 
-      var elapsed_seconds;
-      if (splitted_elapsed.length === 3){
-        elapsed_seconds = parseInt(splitted_elapsed[0])*3600 + parseInt(splitted_elapsed[1])*60 + parseInt(splitted_elapsed[2]);
-      } else if(splitted_elapsed.length === 2) {
-        elapsed_seconds = parseInt(splitted_elapsed[0])*60 + parseInt(splitted_elapsed[1]);
-      } else if(splitted_elapsed.length === 1) {
-        elapsed_seconds = parseInt(splitted_elapsed[0]);
-      }
+      var elapsed_seconds = elapsed.length === 3
+        ? parseInt(elapsed[0]) * 3600 + parseInt(elapsed[1]) * 60 + parseInt(elapsed[2])
+        : elapsed.length === 2
+        ? parseInt(elapsed[0]) * 60 + parseInt(elapsed[1])
+        : parseInt(elapsed[0]);
 
-      var duration_seconds;
-      if (splitted_elapsed.length === 3){
-        duration_seconds = parseInt(splitted_duration[0])*3600 + parseInt(splitted_duration[1])*60 + parseInt(splitted_duration[2]);
-      } else if(splitted_elapsed.length === 2) {
-        duration_seconds = parseInt(splitted_duration[0])*60 + parseInt(splitted_duration[1]);
-      } else if(splitted_elapsed.length === 1) {
-        duration_seconds = parseInt(splitted_duration[0]);
-      }
+      var duration_seconds = duration.length === 3
+        ? parseInt(duration[0]) * 3600 + parseInt(duration[1]) * 60 + parseInt(duration[2])
+        : duration.length === 2
+        ? parseInt(duration[0]) * 60 + parseInt(duration[1])
+        : parseInt(duration[0]);
 
-      progbar.style.backgroundColor= "#51bd54";
-      progbar.style.width = (elapsed_seconds/duration_seconds*100).toFixed(2) + "%";
+      progbar.style.backgroundColor = "#51bd54";
+      progbar.style.width = (elapsed_seconds / duration_seconds * 100).toFixed(2) + "%";
     }
 
 
