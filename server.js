@@ -92,7 +92,7 @@ async function getSubscriberCount_default() {
   }
 }
 
-if (google_api_key !== "google_api_key") {
+if (apiKey !== "google_api_key") {
   //HANDLE GETS AND POSTS REQUESTS//
   app.get('/current_subs_c', async (req, res) => {
     const handleOrId = req.query.channel; // Pass the channel handle or ID as a query parameter
