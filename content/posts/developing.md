@@ -47,7 +47,7 @@ and for the js file, you do whatever the fuck you like and implement it in your 
 
 `<script src="your js file.js" defer></script>`
 
-part, by changing the "your js file.js" part to your file, you can do it.
+part, by changing the "your js file.js" part to your file, you can do it!.
 
 and now styling.... you can go into the styles.css file and code whatever the fuck you want. just make sure it works and look fine for you.
 
