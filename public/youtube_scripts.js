@@ -56,7 +56,7 @@ async function fetchSongInfo() {
       progbar.style.backgroundColor= "#b81b1b";
     } else {
       // Display video info
-      textbox.textContenxt = `Currently playing: ${videoInfo.title} (by ${videoInfo.uploader}) (${videoInfo.currentTime}/${videoInfo.duration})`;
+      textbox.textContent = `Currently playing: ${videoInfo.title} (by ${videoInfo.uploader}) (${videoInfo.currentTime}/${videoInfo.duration})`;
 
       // Progress bar calculation
       var elapsed = videoInfo.currentTime.split(":");
