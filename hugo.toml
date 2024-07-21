@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'loopback-oss-helper'
+theme = 'hugo-coder'

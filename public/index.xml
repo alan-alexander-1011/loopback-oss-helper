@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>loopback-oss-helper</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on loopback-oss-helper</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Jul 2024 12:34:37 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to loopback-oss-helper!</title>
+      <link>http://localhost:1313/posts/welcome/</link>
+      <pubDate>Sun, 21 Jul 2024 12:34:37 +0700</pubDate>
+      <guid>http://localhost:1313/posts/welcome/</guid>
+      <description>Welcome to loopback-oss-helper! Link to heading its a program that make streaming widgets based on npm/node.js. Link to heading so now, here&amp;rsquo;s a preview of everything. Link to heading youtube channel stats:&#xA;current youtube video:&#xA;current music (youtube music):</description>
+    </item>
+  </channel>
+</rss>
