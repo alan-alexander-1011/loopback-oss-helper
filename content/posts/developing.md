@@ -41,7 +41,7 @@ for html:
 </body>
 </html>
 ```
-you would need something like this
+you would need something like this.
 
 and for the js file, you do whatever the fuck you like and implement it in your html file, at the
 
